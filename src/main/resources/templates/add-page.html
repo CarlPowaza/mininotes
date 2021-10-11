@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NEW PAGE!</title>
+</head>
+<body>
+<h2>HI</h2>
+
+<div th:each="st:${notes}">
+    <div th:text="${st.title}"></div>
+    <div th:text="${ st.body}"></div>
+
+</div>
+
+
+
+
+
+</body>
+</html>
