@@ -1,5 +1,6 @@
 package edu.neiu.mininotes.controllers;
 
+import edu.neiu.mininotes.models.note;
 import edu.neiu.mininotes.models.page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,8 +22,8 @@ public class pageController {
 
     @ModelAttribute
     public void addNotes(Model model){
-        page myPage = new page();
-        myPage.addNote("first entry","I wonder if itll work");
+        page myPage = new page("first entry",new note("first entry","body of first entry"));
+        myPage.addNote("and another one","hi");
         model.addAttribute("notes",myPage.getNotes());
 
     }

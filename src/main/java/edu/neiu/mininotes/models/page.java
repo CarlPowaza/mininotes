@@ -14,9 +14,10 @@ public class page {
         this.notes = new ArrayList<note>();//random number for now,Will pick the right amount after I see how notes end up looking
         this.notes.add(new note());
     }
-    public page(String pageName, ArrayList<note> notes){
+    public page(String pageName,note note){
         this.pageName = pageName;
-        this.notes =notes;
+        this.notes = new ArrayList<note>();
+        this.notes.add(new note());
     }
     public String getPageName(){return this.pageName;}
     public ArrayList<note> getNotes(){return this.notes;}
@@ -27,7 +28,10 @@ public class page {
         this.notes.add(new note(title,body));
 
     }
+    public void addNote(note note){
+        this.notes.add(note);
 
+    }
 
 
 
