@@ -9,13 +9,16 @@
 <h2>HI</h2>
 
 <br>
-<!--
-<form th:action="@{/note}" th:object="${note}" method="post">
-    <input type="text"id="Title" th:field="*{}">
 
+<form th:action="@{/note}" th:object="${note}" method="post">
+    <input type="text"id="title" th:field="*{title}" placeholder="Title">
+    <br>
+    <input type="text"id="body" th:field="*{body}" placeholder="body">
+    <br>
+    <input type="submit" value="Add note!">
 </form>
 
--->
+
 <br> <br> <br> <br>
 
 <p> ok ok </p>
