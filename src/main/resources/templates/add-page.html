@@ -8,11 +8,23 @@
 <body>
 <h2>HI</h2>
 
+<br>
+<!--
+<form th:action="@{/note}" th:object="${note}" method="post">
+    <input type="text"id="Title" th:field="*{}">
+
+</form>
+
+-->
+<br> <br> <br> <br>
+
+<p> ok ok </p>
 <div th:each="st:${notes}">
     <div th:text="${st.title}"></div>
     <div th:text="${ st.body}"></div>
 
 </div>
+
 
 
 
