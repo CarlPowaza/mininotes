@@ -2,11 +2,11 @@
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <th:block th:insert="fragments/base :: headAttributes"></th:block>
     <title>NEW PAGE!</title>
 </head>
 <body>
-<h2>HI</h2>
+<div th:replace="fragments/base ::header"></div>
 
 <br>
 
@@ -19,19 +19,11 @@
 </form>
 
 
-<br> <br> <br> <br>
-
-<p> ok ok </p>
-<div th:each="st:${notes}">
-    <div th:text="${st.title}"></div>
-    <div th:text="${ st.body}"></div>
-
-</div>
 
 
 
 
-
-
+<div th:replace="fragments/base :: footer"></div>
 </body>
+<th:block th:replace="fragments/base :: scripts"></th:block>
 </html>

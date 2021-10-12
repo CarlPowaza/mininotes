@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.ArrayList;
 
@@ -29,9 +30,11 @@ public class NoteController {
 //
 //    }
     @PostMapping
-    public String handleNoteForm(@ModelAttribute("note") note note){
-        System.out.println(note.getTitle()+" "+note.getBody());
-        return "redirect:/";
+    public String handleNoteForm(@ModelAttribute("note") note note, RedirectAttributes atr){
+        //System.out.println(note.getTitle()+" "+note.getBody());
+        atr.addFlashAttribute("wholNote",note.getTitle() + " "+note.getBody());
+
+       return "redirect:/";
     }
 
 

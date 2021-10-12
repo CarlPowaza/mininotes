@@ -2,10 +2,15 @@
 <html lang="en"
             xmlns:th="http://www.thymeleaf.org">
 <head>
-     <meta charset="UTF-8">
+     <th:block th:insert="fragments/base :: headAttributes"></th:block>
      <title>Mini-Notes</title>
 </head>
 <body>
-     <h2>Mini-Notes</h2>
+     <div th:replace="fragments/base ::header"></div>
+
+     <br>
+     <div th:replace="fragments/base :: footer"></div>
+
 </body>
+     <th:block th:replace="fragments/base :: scripts"></th:block>
 </html>
