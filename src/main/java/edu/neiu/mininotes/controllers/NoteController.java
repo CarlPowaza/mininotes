@@ -29,7 +29,7 @@ public class NoteController {
 //    }
     @PostMapping
     public String handleNoteForm(@ModelAttribute("note") Note note){
-        System.out.println(note.getTitle()+" "+note.getBody());
+        System.out.println(note.getTitle()+" "+note.getBody()+" "+note.getDate());
       //  atr.addFlashAttribute("wholNote",note.getTitle() + " "+note.getBody());
 
        return "redirect:/";
