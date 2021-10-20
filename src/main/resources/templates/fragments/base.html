@@ -11,11 +11,27 @@
 </head>
 <body>
     <div th:fragment="header">
-        <h2>Mini-Notes</h2>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <h2 class="text-center">Mini-Notes</h2>
+                </div>
+                <div class="row justify-content-center">
+                    <class class="col-12 text-center">
+                        <img id="temp_image"th:src="@{/images/temp_image.jpg}" alt="">
+                    </class>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
     </div>
     <div th:fragment="footer">
 
-        <img id="temp_image"th:src="@{/images/temp_image.jpg}" alt=""> Carl Powaza <br>Copyright @2021
+      Carl Powaza <br>Copyright @2021
     </div>
 
 </body>
