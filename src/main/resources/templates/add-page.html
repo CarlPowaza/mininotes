@@ -6,16 +6,36 @@
     <title>NEW PAGE!</title>
 </head>
 <body>
+<div th:replace="fragments/base ::navigation"></div>
 <div th:replace="fragments/base ::header"></div>
 
 <br>
 
-<form th:action="@{/note}" th:object="${note}" method="post">
-    <input type="text"id="title" th:field="*{title}" placeholder="Title">
-    <br>
-    <input type="text"id="body" th:field="*{body}" placeholder="body">
-    <br>
-    <input type="submit" value="Add note!">
+<form class ="my-5" th:action="@{/note}" th:object="${note}" method="post">
+    <div  class = "container-fluid" >
+        <div class="row justify-content-center mb-3">
+
+            <div class ="col-8 row-md-3  mb-3">
+                <input  class="form-control"  type="text"id="title" th:field="*{title}" placeholder="Title">
+
+            </div>
+
+
+
+                 <div class ="col-8 row-md-3  mb-3 ">
+                <input class="form-control" type="text"id="body" th:field="*{body}" placeholder="body">
+            </div>
+            <div class ="col-8 row-md-3  ml-30">
+                <input  type="submit" value="Add note!">
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
 </form>
 
 
