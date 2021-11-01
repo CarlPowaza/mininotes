@@ -13,6 +13,8 @@ public class Note {
     private String title;
     private String body;
     private LocalDateTime date;
+    //TODO: Change this to be a string for user to type in a due date
+    // add a class field, for users to input for which class the note is for// maybe allow for sorting this way
 
     private LocalDateTime created;
     private LocalDateTime modified;
