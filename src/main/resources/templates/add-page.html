@@ -20,7 +20,22 @@
 
             </div>
 
+            <div class ="col-8 row-md-3  mb-3">
+              <span class="text-danger small" th:if="${#fields.hasErrors('title')}"
+                th:errors="*{title}">
 
+
+              </span>
+
+            </div>
+            <div class ="col-8 row-md-3  mb-3">
+              <span class="text-danger small" th:if="${#fields.hasErrors('body')}"
+                    th:errors="*{body}">
+
+
+              </span>
+
+            </div>
 
                  <div class ="col-8 row-md-3  mb-3 ">
                 <input class="form-control" type="text"id="body" th:field="*{body}" placeholder="body">

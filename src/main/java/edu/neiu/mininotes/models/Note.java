@@ -1,6 +1,8 @@
 package edu.neiu.mininotes.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 
 @Entity
@@ -10,8 +12,15 @@ public class Note {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
 
+    @NotBlank(message = "Title required")
+    @Size(min=2,message = "Title need to be 2 or more characters")
     private String title;
+
+    @NotBlank(message = "Body required")
+    @Size(min=2,message = "Body need to be 2 or more characters")
     private String body;
+
+
     private LocalDateTime date;
     //TODO: Change this to be a string for user to type in a due date
     // add a class field, for users to input for which class the note is for// maybe allow for sorting this way
