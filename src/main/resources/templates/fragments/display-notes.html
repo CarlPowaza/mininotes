@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:insert="fragments/base :: headAttributes"></th:block>
+    <title>Success</title>
+</head>
+<body>
+<div th:replace="fragments/base ::navigation"></div>
+<div th:replace="fragments/base ::header"></div>
+
+
+<div class="container-fluid mt-5">
+    <div th:each="notes: ${notes}">
+        <div class="row justify-content-center mb-5">
+            <div class="col-2 col-md-4"></div>
+            <div class="col-8 col-md-4">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="'Title: '+${notes.title}"></h5>
+                    <br>
+                    <span th:text="${notes.body}"></span>
+                </div>
+            </div>
+            <div class="col-2 col-md-4"></div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+<div th:replace="fragments/base :: footer"></div>
+
+</body>
+<th:block th:replace="fragments/base :: scripts"></th:block>
+</html>
