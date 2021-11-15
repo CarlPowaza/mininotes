@@ -13,7 +13,7 @@ public class Note {
     private long id;
 
     @NotBlank(message = "Title required")
-    @Size(min=2,message = "Title need to be 2 or more characters")
+    @Size(max=15,message = "Title need to be 15 or less characters")
     private String title;
 
     @NotBlank(message = "Body required")

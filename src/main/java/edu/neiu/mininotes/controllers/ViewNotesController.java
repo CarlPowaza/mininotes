@@ -25,7 +25,7 @@ public class ViewNotesController {
 
 
     @GetMapping
-    public String ShowNote(Model model){
+    public String showNote(Model model){
         List<Note> notes = (List<Note>) this.noteRepo.findAll();
         model.addAttribute("notes",notes);
         return "display-notes";

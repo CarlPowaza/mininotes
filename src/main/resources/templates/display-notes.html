@@ -14,11 +14,10 @@
     <div th:each="notes: ${notes}">
         <div class="row justify-content-center mb-5">
             <div class="col-2 col-md-4"></div>
-            <div class="col-8 col-md-4">
+            <div class="col-8 col-md-4 card">
                 <div class="card-body">
-                    <h5 class="card-title" th:text="'Title: '+${notes.title}"></h5>
-                    <br>
-                    <span th:text="${notes.body}"></span>
+                    <h5 class="card-title" th:text="'Title: '+${notes.title}"></h5> <br>
+                    <span th:text="${notes.body}"></span> <br>
                 </div>
             </div>
             <div class="col-2 col-md-4"></div>
