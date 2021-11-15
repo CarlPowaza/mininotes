@@ -6,13 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/note")
@@ -32,6 +30,22 @@ public class NoteController {
         return "add-page";
     }
 
+    @GetMapping("/edit/{id}")
+    public String editNote(@PathVariable Long id,Model model){
+        Note note = this.noteRepo.findById(id).get();
+        model.addAttribute("note",note);
+        return "edit-note";
+
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteStudent(@PathVariable long id){
+        this.noteRepo.deleteById(id);
+        return  "redirect:/view";
+    }
+
+
+
     @PostMapping
     public String handleNoteForm(@Valid @ModelAttribute("note") Note note, Errors errors){
         if(errors.hasErrors()) return "add-page";
@@ -39,6 +53,8 @@ public class NoteController {
         this.noteRepo.save(note);
         return "redirect:/view";
     }
+
+
 
 
 

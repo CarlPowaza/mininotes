@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link th:rel="stylesheet" th:href="@{/css/base.css}">
+    <th:block th:insert="fragments/base :: headAttributes"></th:block>
+    <title>Editing</title>
+</head>
+<body>
+    <div th:replace="fragments/base ::navigation"></div>
+    <div th:replace="fragments/base ::header"></div>
+
+<br>
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <h3 class="text-center col-12">Edit note</h3>
+
+
+
+
+            <form class ="my-5" th:action="@{/note}" th:object="${note}" method="post">
+                <div  class = "container-fluid" >
+                    <div class="row justify-content-center mb-3">
+
+                        <div class ="col-8 row-md-3  mb-3">
+                            <input  class="form-control required"  type="text"id="title" th:field="*{title}" placeholder="Title">
+
+                        </div>
+
+                        <div class ="col-8 row-md-3  mb-3">
+              <span class="text-danger small" th:if="${#fields.hasErrors('title')}"
+                    th:errors="*{title}">
+
+
+              </span>
+
+                        </div>
+                        <div class ="col-8 row-md-3  mb-3">
+              <span class="text-danger small" th:if="${#fields.hasErrors('body')}"
+                    th:errors="*{body}">
+
+
+              </span>
+
+                        </div>
+
+                        <div class ="col-8 row-md-3  mb-3 ">
+                            <input class="form-control" type="text"id="body" th:field="*{body}" placeholder="body">
+                        </div>
+                        <div class ="col-8 row-md-3  ml-30">
+                            <input  type="submit" value="Add note!">
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </form>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+    </div>
+
+
+
+    <div th:replace="fragments/base :: footer"></div>
+</body>
+    <th:block th:replace="fragments/base :: scripts"></th:block>
+</html>

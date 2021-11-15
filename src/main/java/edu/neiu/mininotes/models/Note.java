@@ -12,6 +12,7 @@ public class Note {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
 
+
     @NotBlank(message = "Title required")
     @Size(max=15,message = "Title need to be 15 or less characters")
     private String title;
@@ -38,6 +39,9 @@ public class Note {
          this.body = body;
          this.date = LocalDateTime.now();
     }
+
+    public long getId() {return this.id;}
+
     public String getTitle() {return title;}
     public String getBody()  {return body;}
     public LocalDateTime getDate()  {return date;}
