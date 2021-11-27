@@ -33,6 +33,7 @@ public class NoteController {
     @GetMapping("/edit/{id}")
     public String editNote(@PathVariable Long id,Model model){
         Note note = this.noteRepo.findById(id).get();
+        this.noteRepo.deleteById(id);
         model.addAttribute("note",note);
         return "edit-note";
 
