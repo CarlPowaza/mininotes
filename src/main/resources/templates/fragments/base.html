@@ -28,10 +28,10 @@
 
                 </li>
                 <li class="nav-item" >
-                    <a class="nav-link" th:classappend="${#request.getServletPath()=='/note'? 'active':''}" sec:authorize="isAuthenticated()" th:href="@{/note}">Add Note</a>
+                    <a class="nav-link" th:classappend="${#request.getServletPath()=='/note'? 'active':''}"sec:authorize="hasRole('USER','ADMIN')" th:href="@{/note}">Add Note</a>
                 </li>
                 <li class="nav-item" >
-                    <a class="nav-link" th:classappend="${#request.getServletPath()=='/view'? 'active':''}" sec:authorize="isAuthenticated()" th:href="@{/view}">Notes page</a>
+                    <a class="nav-link" th:classappend="${#request.getServletPath()=='/view'? 'active':''}" sec:authorize="hasRole('USER','ADMIN')" th:href="@{/view}">Notes page</a>
                 </li>
 
 

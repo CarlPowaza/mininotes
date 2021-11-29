@@ -27,7 +27,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .and()
                 .authorizeRequests()
-                .antMatchers("/view/**","/note/**").authenticated()// can add move routes in param <<<<
+                .antMatchers("/view/**","/note/**").hasRole("ADMIN")// can add move routes in param <<<<
+                .and()
+                .authorizeRequests()
+                .antMatchers("/view/**","/note/**").hasAnyRole("ADMIN","USER")
                 .and()
                 .formLogin().loginPage("/login").defaultSuccessUrl("/view",true).permitAll()
                 .and()
@@ -36,7 +39,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
     @Override
     protected  void configure(AuthenticationManagerBuilder auth) throws Exception{
-        auth.inMemoryAuthentication().withUser("user").password(passwordEncoder().encode("password")).roles("USER");
+        auth
+                .inMemoryAuthentication()
+                .withUser("user")
+                .password(passwordEncoder()
+                        .encode("password"))
+                .roles("USER")
+                .and()
+                .withUser("admin")
+                .password(passwordEncoder().encode("password"))
+                .roles("ADMIN");
 
 
     }
