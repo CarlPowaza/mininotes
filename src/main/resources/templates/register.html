@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:insert="fragments/base :: headAttributes"></th:block>
+    <title>Login</title>
+</head>
+<body>
+<div th:replace="fragments/base ::navigation"></div>
+<div th:replace="fragments/base ::header"></div>
+
+<form th:action="@{/login}" method="post">
+
+    <br>
+    <br>
+
+    <div class="row justify-content-center">
+        <div    class="col-8 col-md-3 mb-3 text-center text-dark" th:if="${param.logout}">
+            <span>You have been logged out</span>
+        </div>
+    </div>
+
+
+
+    <div class="container-fluid">
+
+        <div class="row justify-content-center">
+            <div    class="col-8 col-md-3 mb-3">
+                <input class="form-control" id="username" th:name="username" type="text"
+                       placeholder="Username" required/>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div    class="col-8 col-md-3 mb-3">
+                <input class="form-control" id="password" th:name="password" type="password"
+                       placeholder="Password" required/>
+            </div>
+        </div>
+
+
+        <div class="row justify-content-center">
+            <div    class="col-8 col-md-3 mb-3" th:if="${param.error}">
+                <span class="text-danger">Invalid username or password</span>
+
+            </div>
+        </div>
+
+
+        <div class="row justify-content-center">
+            <div    class="col-8 col-md-3">
+                <input type="submit" class="btn btn-dark btn-outline-light" value="Login"/>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</form>
+
+<div th:replace="fragments/base :: footer"></div>
+</body>
+<th:block th:replace="fragments/base :: scripts"></th:block>
+</html>

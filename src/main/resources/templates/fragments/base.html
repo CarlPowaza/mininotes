@@ -14,50 +14,52 @@
     <title>Title</title>
 </head>
 <body>
-    <nav th:fragment="navigation" class="navbar navbar-expand-lg navbar-dark bg-dark border-light ">
-        <a class="navbar-brand" th:href="@{/}"><img th:src="@{/images/brand.png}" id="brand"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarContent"  aria-controls="navbarContent"
-                    aria-expanded="false" aria-label="Toggle navigation" >
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarContent ">
-            <a th:href="@{/logout}" class="btn btn-dark btn-outline-light " sec:authorize="isAuthenticated()">Logout</a>
-
-            <ul class="navbar-nav mr-auto ">
-                <li class="nav-item" >
-                    <a class="nav-link" th:classappend="${#request.getServletPath()=='/'? 'active':''}" th:href="@{/}">Home</a>
-
-                </li>
-                <li class="nav-item" >
-                    <a class="nav-link" th:classappend="${#request.getServletPath()=='/note'? 'active':''}" sec:authorize="isAuthenticated()" th:href="@{/note}">Add Note</a>
-                </li>
-                <li class="nav-item" >
-                    <a class="nav-link" th:classappend="${#request.getServletPath()=='/view'? 'active':''}" sec:authorize="isAuthenticated()"th:href="@{/view}">Notes page</a>
-                </li>
+<nav th:fragment="navigation" class="navbar navbar-expand-lg navbar-dark bg-dark border border-light ">
+    <a class="navbar-brand" th:href="@{/}"><img th:src="@{/images/brand.png}" id="brand"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarContent"  aria-controls="navbarContent"
+            aria-expanded="false" aria-label="Toggle navigation" >
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarContent ">
 
 
-            </ul>
+        <ul class="navbar-nav mr-auto ">
+            <li class="nav-item"  th:classappend="${#request.getServletPath()=='/'? 'active':''}">
+                <a class="nav-link" th:href="@{/}">Home</a>
 
-        </div>
+            </li>
+            <li class="nav-item" >
+                <a class="nav-link" th:classappend="${#request.getServletPath()=='/note'? 'active':''}" sec:authorize="isAuthenticated()" th:href="@{/note}">Add Note</a>
+            </li>
+            <li class="nav-item" >
+                <a class="nav-link" th:classappend="${#request.getServletPath()=='/view'? 'active':''}" sec:authorize="isAuthenticated()"th:href="@{/view}">Notes page</a>
+            </li>
+            <li class="nav-item" >
+                <a class="nav-link" th:classappend="${#request.getServletPath()=='/register'? 'active':''}" th:href="@{/register}">Register</a>
+            </li>
+
+        </ul>
+
+    </div>
+    <a th:href="@{/logout}" class="btn btn-dark btn-outline-light " sec:authorize="isAuthenticated()">Logout</a>
+
+
+
+</nav>
 
 
 
 
-    </nav>
-
+<!---  <img id="temp_image"th:src="@{/images/temp_image.jpg}" alt=""> --->
 
     <div th:fragment="header">
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-12">
-                    <h2 class="text-center">Mini-Notes</h2>
+                    <h2 class="text-center text-white">Mini-Notes</h2>
                 </div>
-                <div class="row justify-content-center">
-                    <class class="col-12 text-center">
-                        <img id="temp_image"th:src="@{/images/temp_image.jpg}" alt="">
-                    </class>
-                </div>
+
 
             </div>
 
@@ -66,10 +68,10 @@
 
 
     </div>
-    <div class="footer " th:fragment="footer">
-        <div class="container-fluid">
+    <div class="footer" th:fragment="footer">
+        <div class="container-fluid mb-0 ">
             <div class="row justify-content-center">
-                Carl Powaza Copyright @2021
+                 Carl Powaza Copyright @2021
             </div>
         </div>
     </div>

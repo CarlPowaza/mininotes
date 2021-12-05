@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <th:block th:insert="fragments/base :: headAttributes"></th:block>
-    <title>Success</title>
+    <title>My Mini-Notes</title>
 </head>
 <body>
 <div th:replace="fragments/base ::navigation"></div>
@@ -32,26 +32,6 @@
     </div>
 
 </div>
-
-
-<script>
-    $('#modal').on('show.bs.modal', function () {
-        $.get("/modals/modal1", function (data) {
-            $('#modal').find('.modal-body').html(data);
-        })
-    });
-</script>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
