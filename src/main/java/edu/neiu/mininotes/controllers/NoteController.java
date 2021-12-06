@@ -3,6 +3,7 @@ package edu.neiu.mininotes.controllers;
 import edu.neiu.mininotes.data.NoteRepository;
 import edu.neiu.mininotes.models.Note;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -29,13 +30,34 @@ public class NoteController {
     }
 
     @GetMapping("/edit/{id}")
-    public String editNote(@PathVariable Long id,Model model){
+    public String editNote(@PathVariable Long id,Model model) {
+
         Note note = this.noteRepo.findById(id).get();
         this.noteRepo.deleteById(id);
         model.addAttribute("note",note);
         return "edit-note";
 
+
+
+
+
+
+        /*
+ if(errors.hasErrors())return "display-notes";
+
+        try{
+            Note originalNote = this.noteRepo.findById(id).get();
+            updateOriginalNote(originalNote,note);
+            this.noteRepo.save(originalNote);
+        } catch (DataIntegrityViolationException e ){
+            errors.rejectValue("note","invalid note","note not available");
+            return "redirect:/view-notes";
+        }
+        return "edit-note";
+
+         */
     }
+
 
     @GetMapping("/delete/{id}")
     public String deleteStudent(@PathVariable long id){
@@ -54,6 +76,12 @@ public class NoteController {
     }
 
 
+
+    private void updateOriginalNote(Note original,Note update){
+        original.setTitle(update.getTitle());
+        original.setBody(update.getBody());
+        this.noteRepo.save(original);
+    }
 
 
 
