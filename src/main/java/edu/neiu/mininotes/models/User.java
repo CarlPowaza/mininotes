@@ -108,6 +108,12 @@ public class User implements UserDetails {
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
+    public long getId(){
+        return id;
+    }
+    public void setId(long id){
+        this.id = id;
+    }
 
     public void setAccountNonExpired(boolean accountNonExpired) {
         this.accountNonExpired = accountNonExpired;

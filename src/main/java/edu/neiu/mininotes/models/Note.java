@@ -18,7 +18,8 @@ public class Note {
     private String title;
 
     @NotBlank(message = "Body required")
-    @Size(min=2,message = "Body need to be 2 or more characters")
+    @Size(min=1,message = "Body need to be 1 or more characters")
+    @Size(max=250,message = "Cannot exceed 250 characters")
     private String body;
 
 

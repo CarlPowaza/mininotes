@@ -11,42 +11,37 @@
 
 <br>
 
-<form class ="my-5" th:action="@{/note}" th:object="${note}" method="post">
-    <div  class = "container-fluid " >
-        <div class="row justify-content-center ">
 
-            <div class ="col-8 row-md-3  mb-3 mb-3 ">
-                <input  class="form-control required"  type="text"id="title" th:field="*{title}" placeholder="Title">
 
-            </div>
+   
+    <div class="container-fluid mt-3"  >
+        <h1 class="text-center">Adding new Note</h1>
+        <form class ="my-5" th:action="@{/note}" th:object="${note}" method="post">
 
-            <div class ="col-8 row-md-3  mb-3">
-              <span class="text-danger small" th:if="${#fields.hasErrors('title')}"
-                th:errors="*{title}">
+            <div class="justify-content-center container-fluid text-center bg-white col-10 col-lg-5 p-2">
+                <div class="row form-group pt-3 pl-5 mb-4 ">
+                    <span class="text-danger small" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">
 
 
               </span>
+                    <input  class="form-control required  col-10 col-lg-6 bg-dark text-light"  type="text" id="title" th:field="*{title}" placeholder="Pick a title">
+                </div>
+                <div class="justify-content-center container-fluid text-center bg-white col-10 col-lg-5 p-2">
 
+                    <span class="text-danger small" th:if="${#fields.hasErrors('body')}" th:errors="*{body}"> </span>
+
+                    <div class="form-group">
+                        <label for="body" ><h2 >Body</h2></label>
+                        <textarea class="form-control rounded-0" type="text"id="body" th:field="*{body}" placeholder="Type your note here!" rows="10"></textarea>
+                    </div>
+
+                </div>
+
+                <input type="submit"
+                       value="Add note!"
+                       class="btn btn-outline-light btn-dark btn-lg mt-2 mb-0 col-6"/>
             </div>
-            <div class ="col-8 row-md-3  mb-3">
-              <span class="text-danger small" th:if="${#fields.hasErrors('body')}"
-                    th:errors="*{body}">
-
-
-              </span>
-
-            </div>
-
-                 <div class ="col-8 row-md-3  mb-3 mb-3 ">
-                <input class="form-control input-group-lg" type="text"id="body" th:field="*{body}" placeholder="body">
-            </div>
-            <div class ="col-8 row-md-3  ml-30">
-                <input  type="submit" value="Add note!">
-            </div>
-
-
-        </div>
-
+        </form>
 
     </div>
 

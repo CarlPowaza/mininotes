@@ -14,28 +14,68 @@
 
      <div class="container-fluid">
 
-          <div class="row justify-content-center" sec:authorize="isAuthenticated()">
-               <div class="col-8 col-md-3 text-center">
-                    <h4 th:text="'welcome '+${user.firstname}+'!'"></h4>
+          <div class="row justify-content-center text-white">
+
+
+               <div class="row justify-content-center">
+
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+
+
+                         <div class="col-8 col-md-3 text-center" sec:authorize="isAuthenticated()">
+                              <br><br><br>
+                              <h4 th:text="'welcome '+${user.firstname}+'!'"></h4>
+                         </div>
+
+
+                         <div class="col-8 col-md-3 text-center"  sec:authorize="isAnonymous()">
+                              <br><br><br>
+                              <h4 th:text="'Log in to begin creating notes'"></h4>
+                         </div>
+
+
+                    </div>
+
+
+                    <div class="col-md-3 col-sm-6 col-xs-12"><img th:src="@{/images/note.png}" id="note-image"></div>
+                    <div class="clearfix visible-sm"></div>
+
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                         <div class="row " sec:authorize="isAnonymous()">
+                              <div class="col-8 col-md-3 ">
+                                     <a th:href="@{/login}" class="btn btn-dark btn-outline-light">Login here</a>
+                              </div>
+                        </div>
+                         <div class="row " sec:authorize="isAuthenticated()">
+                              <div class="col-8 col-md-3 ">
+                                   <a th:href="@{/note}" class="btn btn-dark btn-outline-light">Start Writing notes now!</a>
+                              </div>
+                         </div>
+                    </div>
+
+
+
+
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+
+
+
+
+
+
+                    </div>
                </div>
+
+
+
+
+
           </div>
 
 
 
-          <div class="row justify-content-center" sec:authorize="isAnonymous()">
-               <div class="col-8 col-md-3 text-center">
-                    <a th:href="@{/login}" class="btn btn-light btn-outline-dark">Login</a>
-               </div>
-          </div>
 
      </div>
-
-
-
-
-
-
-
 
 
 

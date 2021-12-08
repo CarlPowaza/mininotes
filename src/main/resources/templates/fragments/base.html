@@ -36,6 +36,9 @@
                 <a class="nav-link" th:classappend="${#request.getServletPath()=='/view'? 'active':''}" sec:authorize="isAuthenticated()"th:href="@{/view}">Notes page</a>
             </li>
             <li class="nav-item" >
+                <a class="nav-link" th:classappend="${#request.getServletPath()=='/edit-user'? 'active':''}" sec:authorize="isAuthenticated()"th:href="@{/edit-user}">User Settings</a>
+            </li>
+            <li class="nav-item" >
                 <a class="nav-link" th:classappend="${#request.getServletPath()=='/register'? 'active':''}" sec:authorize="isAnonymous" th:href="@{/register}">Register</a>
 
             </li>

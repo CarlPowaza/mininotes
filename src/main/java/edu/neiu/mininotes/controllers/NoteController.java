@@ -32,6 +32,9 @@ public class NoteController {
     @GetMapping("/edit/{id}")
     public String editNote(@PathVariable Long id,Model model) {
 
+
+
+
         Note note = this.noteRepo.findById(id).get();
         this.noteRepo.deleteById(id);
         model.addAttribute("note",note);
@@ -39,22 +42,6 @@ public class NoteController {
 
 
 
-
-
-        /*
- if(errors.hasErrors())return "display-notes";
-
-        try{
-            Note originalNote = this.noteRepo.findById(id).get();
-            updateOriginalNote(originalNote,note);
-            this.noteRepo.save(originalNote);
-        } catch (DataIntegrityViolationException e ){
-            errors.rejectValue("note","invalid note","note not available");
-            return "redirect:/view-notes";
-        }
-        return "edit-note";
-
-         */
     }
 
 
