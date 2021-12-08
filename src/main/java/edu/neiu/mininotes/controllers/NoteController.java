@@ -41,7 +41,6 @@ public class NoteController {
 
 
 
-
         /*
  if(errors.hasErrors())return "display-notes";
 

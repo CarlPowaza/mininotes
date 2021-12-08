@@ -8,50 +8,55 @@
 <body>
 <div th:replace="fragments/base ::navigation"></div>
 <div th:replace="fragments/base ::header"></div>
-
-<form th:action="@{/login}" method="post">
+<br>
+<h1 class="mt-2 text-center p-2">Register A new Mini-Notes Account!</h1>
+<form th:action="@{/register}" method="post" th:object="${registrationForm}" id="register">
 
     <br>
     <br>
 
-    <div class="row justify-content-center">
-        <div    class="col-8 col-md-3 mb-3 text-center text-dark" th:if="${param.logout}">
-            <span>You have been logged out</span>
-        </div>
-    </div>
+    <div class="justify-content-center container-fluid text-center bg-white col-10 col-lg-5 p-2">
 
-
-
-    <div class="container-fluid">
-
-        <div class="row justify-content-center">
-            <div    class="col-8 col-md-3 mb-3">
-                <input class="form-control" id="username" th:name="username" type="text"
-                       placeholder="Username" required/>
+            <div class="row form-group pt-3 pl-5 mb-4 ">
+                <span class="row text-danger col-10 col-lg-7 offset-lg-4 text-left " th:if="${#fields.hasErrors('username')}"th:errors="*{username}">placeholder error</span>
+                <input  class="form-control required  col-10 col-lg-6 bg-dark text-light"  type="text" id="username" th:field="*{username}" placeholder="Pick a username!">
             </div>
-        </div>
 
-        <div class="row justify-content-center">
-            <div    class="col-8 col-md-3 mb-3">
-                <input class="form-control" id="password" th:name="password" type="password"
-                       placeholder="Password" required/>
-            </div>
-        </div>
-
-
-        <div class="row justify-content-center">
-            <div    class="col-8 col-md-3 mb-3" th:if="${param.error}">
-                <span class="text-danger">Invalid username or password</span>
+            <div class="row form-group pl-5 mb-4">
+            <span class="row text-danger col-10 col-lg-7 offset-lg-4 text-left"th:if="${#fields.hasErrors('password')}"th:errors="*{password}">placeholder error</span>
+                <input  class="form-control required  col-10 col-lg-6 bg-dark text-light"  type="password" id="password" th:field="*{password}" placeholder="Pick your password here">
 
             </div>
-        </div>
 
 
-        <div class="row justify-content-center">
-            <div    class="col-8 col-md-3">
-                <input type="submit" class="btn btn-dark btn-outline-light" value="Login"/>
+
+            <div class="row form-group pl-5">
+            <span class="row text-danger col-10 col-lg-7 offset-lg-4 text-left"th:if="${#fields.hasErrors('email')}" th:errors="*{email}">placeholder error</span>
+                <input  class="form-control required col-10 col-lg-6 bg-dark text-light"  type="text" id="email" th:field="*{email}" placeholder="Email here">
             </div>
-        </div>
+
+            <div class="row form-group pt-3 pl-5 mt-2">
+            <span class="row text-danger col-10 col-lg-7 offset-lg-4 text-left"
+                  th:if="${#fields.hasErrors('firstName')}"
+                  th:errors="*{firstName}">Error</span>
+                <input  class="form-control required col-10 col-lg-6 bg-dark text-light"  type="text" id="firstname" th:field="*{firstName}" placeholder="First name">
+            </div>
+            <div class="row form-group pt-3 pl-5 mt-2">
+            <span class="row text-danger col-10 col-lg-7 offset-lg-4 text-left"
+                  th:if="${#fields.hasErrors('lastName')}"
+                  th:errors="*{lastName}">Error</span>
+                <input  class="form-control required col-10 col-lg-6 bg-dark text-light"  type="text" id="lastname" th:field="*{lastName}" placeholder="Last name here">
+            </div>
+
+
+        <br><br>
+        <input type="submit"
+               value="Register"
+               class="btn btn-outline-light btn-dark btn-lg mt-2 mb-0 col-6"/>
+
+
+
+
 
 
     </div>

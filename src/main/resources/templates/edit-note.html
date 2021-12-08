@@ -21,8 +21,9 @@
 
 
             <form class ="my-5"th:action="@{/note}" th:object="${note}" method="post">
+
                 <div  class = "container-fluid" >
-                    <div class="row justify-content-center mb-3">
+                    <div class="row justify-content-center bg-white col-10 col-lg-5 mt-3 p-2 mb-5">
 
                         <div class ="col-8 row-md-3  mb-3">
                             <input  class="form-control required"  type="text"id="title" th:field="*{title}" placeholder="Title">
