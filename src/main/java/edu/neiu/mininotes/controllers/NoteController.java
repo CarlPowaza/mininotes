@@ -1,38 +1,45 @@
 package edu.neiu.mininotes.controllers;
 
 import edu.neiu.mininotes.data.NoteRepository;
+import edu.neiu.mininotes.data.UserRepository;
 import edu.neiu.mininotes.models.Note;
+import edu.neiu.mininotes.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/note")
 public class NoteController {
 
 
-    private NoteRepository noteRepo;
+    private final NoteRepository noteRepo;
+    private UserRepository userRepo;
 
     @Autowired
-    public NoteController(NoteRepository noteRepo){
+    public NoteController(NoteRepository noteRepo, UserRepository userRepo){
         this.noteRepo  = noteRepo;
+        this.userRepo = userRepo;
     }
 
     @GetMapping
-    public String getNote(Model model){
-        model.addAttribute("note",new Note());
+    public String getNote(Model model, @AuthenticationPrincipal User user){
+      model.addAttribute("note",new Note(user));
         return "add-note";
     }
 
+
     @GetMapping("/edit/{id}")
     public String editNote(@PathVariable Long id,Model model) {
-
-
 
 
         Note note = this.noteRepo.findById(id).get();
@@ -63,11 +70,6 @@ public class NoteController {
 
 
 
-    private void updateOriginalNote(Note original,Note update){
-        original.setTitle(update.getTitle());
-        original.setBody(update.getBody());
-        this.noteRepo.save(original);
-    }
 
 
 

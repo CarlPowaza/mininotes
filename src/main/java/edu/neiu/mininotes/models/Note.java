@@ -22,6 +22,10 @@ public class Note {
     @Size(max=250,message = "Cannot exceed 250 characters")
     private String body;
 
+    @ManyToOne
+    private User user;
+
+
 
     private LocalDateTime date;
     //TODO: Change this to be a string for user to type in a due date
@@ -35,6 +39,12 @@ public class Note {
         this.body = "";
         this.date = LocalDateTime.now();
      }
+    public Note(User user){
+        this.title="Untitled";
+        this.body = "";
+        this.date = LocalDateTime.now();
+        this.user  =user;
+    }
     public Note(String title, String body){
          this.title = title;
          this.body = body;
@@ -47,6 +57,16 @@ public class Note {
     public String getBody()  {return body;}
     public LocalDateTime getDate()  {return date;}
 
+
+    public User getUser(){
+         return this.user;
+    }
+    public void setUser(User user){
+         this.user = user;
+    }
+
+
+
     public LocalDateTime getCreated()  {return created;}
     public void setCreated(LocalDateTime date){this.created =date;}
 
@@ -57,12 +77,20 @@ public class Note {
     public void onCreate(){
          this.setCreated(LocalDateTime.now());
         this.setModified(LocalDateTime.now());
+
     }
 
     @PreUpdate
     public void onUpdate(){
          this.setModified(LocalDateTime.now());
     }
+
+
+
+
+
+
+
 
 
     public void setBody(String body){this.body =body;}

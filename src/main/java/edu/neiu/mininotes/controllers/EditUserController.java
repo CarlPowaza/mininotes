@@ -71,7 +71,7 @@ public class EditUserController {
         currentUser.setPassword(passwordEncoder.encode(updateForm.getPassword()));
 
         userRepository.save(userDB);
-
+        userRepository.save(currentUser);
         return "redirect:/note";
 
     }
