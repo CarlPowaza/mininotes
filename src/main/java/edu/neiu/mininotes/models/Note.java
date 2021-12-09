@@ -13,6 +13,30 @@ public class Note {
     private long id;
 
 
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private User user;
+
+    public void setUser(User user){
+        this.user = user;
+    }
+    public User getUser(){
+        return  this.user;
+    }
+
+
+
+    private String username;
+
+    public void setUsername(String username){
+        this.username = username;
+    }
+    public String setUsername(){
+        return this.username;
+    }
+
+
+
     @NotBlank(message = "Title required")
     @Size(max=15,message = "Title need to be 15 or less characters")
     private String title;
@@ -22,10 +46,6 @@ public class Note {
     @Size(max=250,message = "Cannot exceed 250 characters")
     private String body;
 
-    @ManyToOne
-    private User user;
-
-
 
     private LocalDateTime date;
     //TODO: Change this to be a string for user to type in a due date
@@ -34,21 +54,23 @@ public class Note {
     private LocalDateTime created;
     private LocalDateTime modified;
 
-     public Note(){
+    public Note(){
         this.title="Untitled";
         this.body = "";
         this.date = LocalDateTime.now();
-     }
-    public Note(User user){
-        this.title="Untitled";
-        this.body = "";
-        this.date = LocalDateTime.now();
-        this.user  =user;
+
     }
     public Note(String title, String body){
-         this.title = title;
-         this.body = body;
-         this.date = LocalDateTime.now();
+        this.title = title;
+        this.body = body;
+        this.date = LocalDateTime.now();
+
+    }
+    public Note(String username){
+        this.title="Untitled";
+        this.body = "";
+        this.date = LocalDateTime.now();
+        this.username = username;
     }
 
     public long getId() {return this.id;}
@@ -56,16 +78,6 @@ public class Note {
     public String getTitle() {return title;}
     public String getBody()  {return body;}
     public LocalDateTime getDate()  {return date;}
-
-
-    public User getUser(){
-         return this.user;
-    }
-    public void setUser(User user){
-         this.user = user;
-    }
-
-
 
     public LocalDateTime getCreated()  {return created;}
     public void setCreated(LocalDateTime date){this.created =date;}
@@ -75,22 +87,14 @@ public class Note {
 
     @PrePersist
     public void onCreate(){
-         this.setCreated(LocalDateTime.now());
+        this.setCreated(LocalDateTime.now());
         this.setModified(LocalDateTime.now());
-
     }
 
     @PreUpdate
     public void onUpdate(){
-         this.setModified(LocalDateTime.now());
+        this.setModified(LocalDateTime.now());
     }
-
-
-
-
-
-
-
 
 
     public void setBody(String body){this.body =body;}

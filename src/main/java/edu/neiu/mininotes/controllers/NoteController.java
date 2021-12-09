@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/note")
@@ -32,8 +34,12 @@ public class NoteController {
     }
 
     @GetMapping
-    public String getNote(Model model, @AuthenticationPrincipal User user){
-      model.addAttribute("note",new Note(user));
+    public String getNote(Model model){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user=(User) authentication.getPrincipal();
+        model.addAttribute("user",user);
+
+        model.addAttribute("note",new Note(user.getUsername()));
         return "add-note";
     }
 

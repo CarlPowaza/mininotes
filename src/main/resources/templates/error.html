@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:insert="fragments/base :: headAttributes"></th:block>
+    <title>404</title>
+</head>
+<body>
+<div th:replace="fragments/base ::navigation"></div>
+<div th:replace="fragments/base ::header"></div>
+
+<br>
+
+    <div class="row justify-content-center">
+        <div class="col-8 mb-3 text-center text-white">
+                <h1>404</h1>
+            <h2 th:text="${message}">Something went wrong on our end</h2>
+        </div>
+    </div>
+
+
+<div th:replace="fragments/base :: footer"></div>
+</body>
+<th:block th:replace="fragments/base :: scripts"></th:block>
+</html>

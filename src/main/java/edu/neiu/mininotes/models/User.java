@@ -29,6 +29,21 @@ public class User implements UserDetails {
     private String lastname;
 
 
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    private Set<Note> notes = new HashSet<>();
+
+    public void setNotes(Set<Note> notes){
+        this.notes = notes;
+    }
+    public Set<Note> getNotes(){
+        return this.notes;
+    }
+
+
+
+
+
+
 
     private boolean enabled;
     private boolean accountNonExpired;
@@ -48,7 +63,7 @@ public class User implements UserDetails {
             authorities.add(grantedAuthority);
         }
 
-      return authorities;
+        return authorities;
     }
 
     @Override
@@ -153,6 +168,17 @@ public class User implements UserDetails {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+
+
+    @Override
+    public boolean equals(Object o){
+
+        if(!(o instanceof User)) return false;
+
+        User u = (User) o;
+        return this.username.equals(u.username) && this.email.equals(u.email);
     }
 
 

@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Set;
 
 @Data
 public class RegistrationForm {
@@ -52,8 +53,7 @@ public class RegistrationForm {
         newUser.setAccountNonLocked(true);
         newUser.setCredentialsNonExpired(true);
         newUser.setEnabled(true);
-
-
+        newUser.setRoles(Set.of(User.Role.ROLE_USER));
         return newUser;
     }
 
