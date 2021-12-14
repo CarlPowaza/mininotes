@@ -1,4 +1,3 @@
-# TO-DO README
 Carl Powaza
 
 
