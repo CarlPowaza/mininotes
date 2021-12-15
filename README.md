@@ -3,6 +3,8 @@ Carl Powaza
 <h1>Mini-Notes</h1>
 ![image](https://user-images.githubusercontent.com/16215764/146272294-31f4537f-487c-4d29-a4bc-0bfa7803af65.png)
 
+
+<a href="https://ibb.co/Vvgkt7M"><img src="https://user-images.githubusercontent.com/16215764/146272294-31f4537f-487c-4d29-a4bc-0bfa7803af65.png" alt="vis-sort" border="0"></a>
 By Carl Powaza
 
 
