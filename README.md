@@ -1,8 +1,6 @@
 Carl Powaza
 
 <h1>Mini-Notes</h1>
-![image](https://user-images.githubusercontent.com/16215764/146272294-31f4537f-487c-4d29-a4bc-0bfa7803af65.png)
-
 
 <a href="https://ibb.co/Vvgkt7M"><img src="https://user-images.githubusercontent.com/16215764/146272294-31f4537f-487c-4d29-a4bc-0bfa7803af65.png" alt="vis-sort" border="0" style="width:450px;height:300px;"></a>
 <a href="https://ibb.co/Vvgkt7M"><img src="https://user-images.githubusercontent.com/16215764/146272793-6c6dfec9-061b-450c-b4a9-9252fc570c3e.png" alt="vis-sort" border="0" style="width:170;height:300px;"></a>
